@@ -22,7 +22,16 @@ class ImageProcessor:
             raise ValueError("Input must be a PIL Image object")
             
         try:
-            return remove(image)
+            result = remove(image)
+            if isinstance(result, Image.Image):
+                return result
+            elif isinstance(result, bytes):
+                return Image.open(io.BytesIO(result))
+            else:
+                import numpy as np
+                if isinstance(result, np.ndarray):
+                    return Image.fromarray(result)
+            raise ValueError("Unexpected return type from background removal")
         except Exception as e:
             raise Exception(f"Failed to remove background: {str(e)}")
     
