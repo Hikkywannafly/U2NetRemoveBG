@@ -45,7 +45,7 @@ def remove_background(input_path, output_path):
         no_bg_image.paste(input_img, mask=mask)
         
         # Lưu ảnh kết quả
-        no_bg_image.save(output_path, format='PNG')
+        no_bg_image.save(output_path, format='PNG', compress_level=1)
         print(f"Đã xử lý xong ảnh và lưu vào: {output_path}")
         
         # Giải phóng bộ nhớ GPU

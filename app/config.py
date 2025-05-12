@@ -14,7 +14,7 @@ os.makedirs(UPLOADS_DIR, exist_ok=True)
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
 # DPI tiêu chuẩn cho ảnh in
-DPI = 300
+DPI = 600
 
 # Cấu hình CORS
 CORS_ORIGINS = ["*"]  # Trong môi trường production, hãy giới hạn nguồn gốc
